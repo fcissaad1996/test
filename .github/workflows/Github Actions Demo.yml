@@ -1,0 +1,31 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Github Actions Demo
+
+# Controls when the workflow will run
+on: push
+jobs:
+  # This workflow contains a single job called "build"
+  Explore-Github-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Print name"
+        run: echo "the job was triggered by ${{github.event_name}}"
+      - name: "Print os"
+        run: echo "the job running on ${{runner.os}}"
+      - name: "Print branch name"
+        run: echo "branch ${{github.ref}}"
+        
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: "Checkout repo code"
+        uses: actions/checkout@v4
+
+      # Runs a single command using the runners shell
+      - name: List files in repo
+        run: ls ${{github.workspace}}
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
